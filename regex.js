@@ -8,7 +8,6 @@ const testPattern = (pattern, string) => {
   return pattern.test(string);
 };
 
-console.log(testPattern(textConstantPattern, "9ahh"));
 
 export {
   idPattern,
