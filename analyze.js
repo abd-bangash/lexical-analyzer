@@ -1,6 +1,20 @@
 import Token from "./tokenClass.js";
 import tokenize from "./tokenize.js";
 import breakers from "./breakFunc.js";
+import {
+  stringCheck,
+  commentCheck,
+  multiLineCommentCheck,
+  multiLineStringCheck,
+} from "./checkFunctions.js";
+
+const tokenMaker = (temp, tokenize, tokens) => {
+  let temp_token = new Token();
+  temp_token = tokenize(temp);
+  tokens.push(temp_token);
+  temp = "";
+  return [temp, tokens];
+};
 
 const analyzer = (program) => {
   let current = 0;
@@ -12,94 +26,31 @@ const analyzer = (program) => {
 
     // Handle string literals
     if (program[current] === '"') {
-      let temp_token = new Token();
-      temp_token = tokenize(temp);
-      tokens.push(temp_token);
-      temp = "";
-      temp += program[current];
-      current++;
-
-      while (current < program.length) {
-        if (program[current] === '"' && program[current - 1] !== "\\") {
-          temp += program[current];
-          current++;
-          break;
-        } else if (program[current] === "\n") {
-          current++;
-          break;
-        } else {
-          temp += program[current];
-          current++;
-        }
-      }
-
-      temp_token = tokenize(temp);
-      tokens.push(temp_token);
-      temp = "";
+      [temp, tokens] = tokenMaker(temp, tokenize, tokens);
+      [temp, current] = stringCheck(program, current);
+      [temp, tokens] = tokenMaker(temp, tokenize, tokens);
       continue;
     }
 
     // handling comments
     if (program[current] === "#") {
-      let temp_token = new Token();
-      temp_token = tokenize(temp);
-      tokens.push(temp_token);
-      temp = "";
-      current++;
-
-      while (current < program.length) {
-        if (program[current] === "\n") {
-          current++;
-          break;
-        } else {
-          current++;
-        }
-      }
+      [temp, tokens] = tokenMaker(temp, tokenize, tokens);
+      current = commentCheck(program, current);
       continue;
     }
 
     //handling multi line comments
     if (program[current] === "/" && program[current + 1] === "*") {
-      let temp_token = new Token();
-      temp_token = tokenize(temp);
-      tokens.push(temp_token);
-      temp = "";
-      current += 2;
-
-      while (current < program.length) {
-        if (program[current] === "*" && program[current + 1] === "/") {
-          current += 2;
-          break;
-        } else {
-          current++;
-        }
-      }
+      [temp, tokens] = tokenMaker(temp, tokenize, tokens);
+      current = multiLineCommentCheck(program, current);
       continue;
     }
 
     // handling multi line strings
     if (program[current] === "`") {
-      let temp_token = new Token();
-      temp_token = tokenize(temp);
-      tokens.push(temp_token);
-      temp = "";
-      temp += program[current];
-      current++;
-
-      while (current < program.length) {
-        if (program[current] === "`" && program[current - 1] !== "\\") {
-          temp += program[current];
-          current++;
-          break;
-        } else {
-          temp += program[current];
-          current++;
-        }
-      }
-
-      temp_token = tokenize(temp);
-      tokens.push(temp_token);
-      temp = "";
+      [temp, tokens] = tokenMaker(temp, tokenize, tokens);
+      [temp, current] = multiLineStringCheck(program, current);
+      [temp, tokens] = tokenMaker(temp, tokenize, tokens);
       continue;
     }
 
@@ -114,10 +65,7 @@ const analyzer = (program) => {
 
     if (matchedBreaker) {
       if (temp) {
-        let temp_token = new Token();
-        temp_token = tokenize(temp);
-        tokens.push(temp_token);
-        temp = "";
+        [temp, tokens] = tokenMaker(temp, tokenize, tokens);
       }
 
       // Tokenize the breaker
@@ -134,11 +82,9 @@ const analyzer = (program) => {
   }
 
   if (temp) {
-    let temp_token = new Token();
-    temp_token = tokenize(temp);
-    tokens.push(temp_token);
+    [temp, tokens] = tokenMaker(temp, tokenize, tokens);
   }
-
+  tokens = tokens.filter((token) => token !== null);
   return tokens;
 };
 
