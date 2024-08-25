@@ -1,6 +1,5 @@
 const breakers = [
   ";",
-  "s",
   "\t",
   "\n",
   "\r",
@@ -12,6 +11,8 @@ const breakers = [
   "}",
   "(",
   ")",
+  "[",
+  "]",
   "+",
   "-",
   "*",
@@ -19,6 +20,7 @@ const breakers = [
   "%",
   "++",
   "--",
+  "=",
   "<",
   ">",
   "<=",
@@ -41,4 +43,4 @@ const breakFunc = (char1, char2) => {
   return false;
 };
 
-export default breakFunc;
+export default breakers;

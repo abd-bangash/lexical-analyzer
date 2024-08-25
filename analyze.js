@@ -1,44 +1,6 @@
 import Token from "./tokenClass.js";
 import tokenize from "./tokenize.js";
-
-const breakers = [
-  ";",
-  "\t",
-  "\n",
-  "\r",
-  "\v",
-  "\f",
-  " ",
-  ",",
-  "{",
-  "}",
-  "(",
-  ")",
-  "[",
-  "]",
-  "+",
-  "-",
-  "*",
-  "/",
-  "%",
-  "++",
-  "--",
-  "=",
-  "<",
-  ">",
-  "<=",
-  ">=",
-  "!=",
-  "==",
-  "&&",
-  "||",
-  "!",
-  "+=",
-  "-=",
-  "*=",
-  "/=",
-  "%=",
-];
+import breakers from "./breakFunc.js";
 
 const analyzer = (program) => {
   let current = 0;
