@@ -48,6 +48,99 @@ const analyzer = (program) => {
   while (current < program.length) {
     let matchedBreaker = null;
 
+    // Handle string literals
+    if (program[current] === '"') {
+      let temp_token = new Token();
+      temp_token = tokenize(temp);
+      tokens.push(temp_token);
+      temp = "";
+      temp += program[current];
+      current++;
+
+      while (current < program.length) {
+        if (program[current] === '"' && program[current - 1] !== "\\") {
+          temp += program[current];
+          current++;
+          break;
+        } else if (program[current] === "\n") {
+          current++;
+          break;
+        } else {
+          temp += program[current];
+          current++;
+        }
+      }
+
+      temp_token = tokenize(temp);
+      tokens.push(temp_token);
+      temp = "";
+      continue;
+    }
+
+    // handling comments
+    if (program[current] === "#") {
+      let temp_token = new Token();
+      temp_token = tokenize(temp);
+      tokens.push(temp_token);
+      temp = "";
+      current++;
+
+      while (current < program.length) {
+        if (program[current] === "\n") {
+          current++;
+          break;
+        } else {
+          current++;
+        }
+      }
+      continue;
+    }
+
+    //handling multi line comments
+    if (program[current] === "/" && program[current + 1] === "*") {
+      let temp_token = new Token();
+      temp_token = tokenize(temp);
+      tokens.push(temp_token);
+      temp = "";
+      current += 2;
+
+      while (current < program.length) {
+        if (program[current] === "*" && program[current + 1] === "/") {
+          current += 2;
+          break;
+        } else {
+          current++;
+        }
+      }
+      continue;
+    }
+
+    // handling multi line strings
+    if (program[current] === "`") {
+      let temp_token = new Token();
+      temp_token = tokenize(temp);
+      tokens.push(temp_token);
+      temp = "";
+      temp += program[current];
+      current++;
+
+      while (current < program.length) {
+        if (program[current] === "`" && program[current - 1] !== "\\") {
+          temp += program[current];
+          current++;
+          break;
+        } else {
+          temp += program[current];
+          current++;
+        }
+      }
+
+      temp_token = tokenize(temp);
+      tokens.push(temp_token);
+      temp = "";
+      continue;
+    }
+
     // Try to match the longest breaker first
     for (let length = 3; length > 0; length--) {
       const subStr = program.substring(current, current + length);
@@ -58,11 +151,11 @@ const analyzer = (program) => {
     }
 
     if (matchedBreaker) {
-      // Tokenize the collected characters (if any) before the breaker
       if (temp) {
-        let temp_token = tokenize(temp);
+        let temp_token = new Token();
+        temp_token = tokenize(temp);
         tokens.push(temp_token);
-        temp = ""; // Clear the temp variable
+        temp = "";
       }
 
       // Tokenize the breaker
@@ -71,18 +164,16 @@ const analyzer = (program) => {
         tokens.push(breaker_token);
       }
 
-      // Move past the breaker
       current += matchedBreaker.length;
     } else {
-      // Collect characters if no breaker is matched
       temp += program[current];
       current++;
     }
   }
 
-  // Tokenize any remaining characters in temp after the loop
   if (temp) {
-    let temp_token = tokenize(temp);
+    let temp_token = new Token();
+    temp_token = tokenize(temp);
     tokens.push(temp_token);
   }
 

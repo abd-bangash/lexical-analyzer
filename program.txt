@@ -1,4 +1,5 @@
 my_name 98 99.99 "jike" whenever ( > / ) +=
+#like
+text a = "test"#;
+`kkkkkk`
 int king="james";
-int 9king="ahadkinghhhhhhhhhhhh
-]]]]]]]]
