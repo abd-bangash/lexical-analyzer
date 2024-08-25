@@ -53,7 +53,25 @@ const analyzer = (program) => {
       [temp, tokens] = tokenMaker(temp, tokenize, tokens);
       continue;
     }
-
+    // handling the dot operator (still some cases not fulfilled)
+    if (program[current] === ".") {
+      if (/^\d$/.test(program[current + 1])) {
+        temp += ".";
+        current++;
+        while (/^\d$/.test(program[current])) {
+          temp += program[current];
+          current++;
+        }
+      } else {
+        if (temp) {
+          [temp, tokens] = tokenMaker(temp, tokenize, tokens);
+        }
+        temp = ".";
+        [temp, tokens] = tokenMaker(temp, tokenize, tokens);
+        current++;
+      }
+      continue;
+    }
     // Try to match the longest breaker first
     for (let length = 3; length > 0; length--) {
       const subStr = program.substring(current, current + length);
