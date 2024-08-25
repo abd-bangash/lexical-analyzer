@@ -36,11 +36,5 @@ const breakers = [
   "/=",
   "%=",
 ];
-const breakFunc = (char1, char2) => {
-  if (breakers.includes(char1 + char2) || breakers.includes(char1)) {
-    return true;
-  }
-  return false;
-};
 
 export default breakers;
