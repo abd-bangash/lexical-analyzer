@@ -1,7 +1,7 @@
 const idPattern = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
 const intConstantPattern = /^[+-]?[0-9]+$/;
 const floatConstantPattern =
-  /^[+-]?([0-9]*[0-9]\.[0-9]+|[0-9]+[0-9]*\.[0-9]+)$/;
+  /^[+-]?([0-9]*[0-9]?\.[0-9]+|[0-9]+[0-9]*\.[0-9]+)$/;
 const textConstantPattern = /^"([^"\\]|\\.)*"$/;
 const multiLineTextConstantPattern = /`(?:[^`]|\\`)*`/g;
 const newLineRegex = /"\\n"/;

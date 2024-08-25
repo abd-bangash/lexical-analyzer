@@ -54,14 +54,22 @@ const analyzer = (program) => {
       continue;
     }
     // handling the dot operator (still some cases not fulfilled)
+
     if (program[current] === ".") {
+      if (!/^\d$/.test(program[current - 1])) {
+        [temp, tokens] = tokenMaker(temp, tokenize, tokens);
+      }
       if (/^\d$/.test(program[current + 1])) {
         temp += ".";
         current++;
-        while (/^\d$/.test(program[current])) {
+        while (
+          current < program.length &&
+          !breakers.includes(program[current])
+        ) {
           temp += program[current];
           current++;
         }
+        [temp, tokens] = tokenMaker(temp, tokenize, tokens);
       } else {
         if (temp) {
           [temp, tokens] = tokenMaker(temp, tokenize, tokens);
