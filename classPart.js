@@ -5,21 +5,27 @@ const TokenClassPart = {
   elsewise: "elsewise",
   break: "break",
   continue: "continue", // Else keyword
-  repeat: "repeat", // Loop keyword
-  def: "def", // Function keyword
+  dountil: "LOOP", // Loop keyword
+  dounless: "LOOP", // Loop keyword
+  fn: "FN", // Function keyword
   blueprint: "blueprint", // Class keyword
   construct: "construct", // Object creation keyword
   return: "return", // Return keyword
+  var: "VAR", // VARIABLE INITIALIZER
+  const: "CONST", //LITERAL CONSTANT
+  void: "VOID", //NO RETURN FROM FUNCTION
+  list: "LIST",
 
   // Data Types
-  int: "DATA_TYPE", // Integer data type
-  float: "DATA_TYPE", // Float data type
-  bool: "DATA_TYPE", // Boolean data type
-  text: "DATA_TYPE", // String data type
+  numi: "DATA_TYPE", // Integer data type
+  numf: "DATA_TYPE", // Float data type
+  flag: "DATA_TYPE", // Boolean data type
+  charline: "DATA_TYPE", // String data type
+  block: "DATA_TYPE", //Multi line string data type
 
   // Boolean Literals
-  true: "boolean", // Boolean true
-  false: "boolean", // Boolean false
+  true: "FLAG", // Boolean true
+  false: "FLAG", // Boolean false
 
   // Operators
   "+": "Add/Sub", // Arithmetic operator
@@ -48,13 +54,13 @@ const TokenClassPart = {
   "]": "CLOSE_BRACKET", // Close bracket
   ";": "STATEMENT_TERMINATOR", // Statement terminator
   ",": "SEPARATOR", // Separator
-  "=": "Equals", // Assignment operator
+  "->": "ASSIGNMENT_OPERATOR", // Assignment operator
   ".": "MEMBER_ACCESS_OPERATOR", // Member access operator
-  "+=": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
-  "-=": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
-  "*=": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
-  "/=": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
-  "%=": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
+  "+->": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
+  "-->": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
+  "*->": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
+  "/->": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
+  "%->": "COMPOUND_ASSIGNMENT_OPERATOR", // Compound assignment operator
   " ": "Empty space",
   "\t": "ESCAPESEQUENCE",
   "\n": "Newline",
@@ -63,15 +69,22 @@ const TokenClassPart = {
   "\f": "ESCAPESEQUENCE",
 
   // Functions
-  output: "output", // Built-in output function
-  input: "input", // Built-in input function
+  disp: "output", // Built-in output function
+  read: "input", // Built-in input function
 
   // OOP Aspects
-  new: "OBJECT_CREATION_KEYWORD", // Object creation keyword (same as construct)
-  class: "CLASS_KEYWORD", // Class keyword (same as blueprint)
-  method: "METHOD_KEYWORD", // Method declaration within a class
-  this: "SELF_REFERENCE_KEYWORD", // This/self reference (same as self)
+  construct: "OBJECT_CREATION_KEYWORD", // Object creation keyword (same as construct)
+  blueprint: "CLASS_KEYWORD", // Class keyword (same as blueprint)
+  fn: "METHOD_KEYWORD", // Method declaration within a class
+  self: "SELF_REFERENCE_KEYWORD", // This/self reference (same as self)
   inherits: "INHERITANCE_KEYWORD", // Inheritance keyword
+  open: "ACCESS_MODIFIER",
+  closed: "ACCESS_MODIFIER",
+  sealed: "ACCESS_MODIFIER",
+  shared: "ACCESS_MODIFIER",
+  general: "ACCESS_MODIFIER",
+  initiator: "MAIN_METHOD",
+  create: "CONSTRUCTOR",
 
   // Literals
   INTEGER_LITERAL: "INTEGER_LITERAL", // Any integer

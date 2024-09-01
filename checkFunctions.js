@@ -35,7 +35,7 @@ const commentCheck = (program, current) => {
 const multiLineCommentCheck = (program, current) => {
   current += 2;
   while (current < program.length) {
-    if (program[current] === "*" && program[current + 1] === "/") {
+    if (program[current] === "$" && program[current + 1] === "~") {
       current += 2;
       break;
     } else {

@@ -33,14 +33,14 @@ const analyzer = (program) => {
     }
 
     // handling comments
-    if (program[current] === "#") {
+    if (program[current] === "$") {
       [temp, tokens] = tokenMaker(temp, tokenize, tokens);
       current = commentCheck(program, current);
       continue;
     }
 
     //handling multi line comments
-    if (program[current] === "/" && program[current + 1] === "*") {
+    if (program[current] === "~" && program[current + 1] === "$") {
       [temp, tokens] = tokenMaker(temp, tokenize, tokens);
       current = multiLineCommentCheck(program, current);
       continue;
@@ -81,7 +81,7 @@ const analyzer = (program) => {
       continue;
     }
     // Try to match the longest breaker first
-    for (let length = 3; length > 0; length--) {
+    for (let length = 3; length >= 0; length--) {
       const subStr = program.substring(current, current + length);
       if (breakers.includes(subStr)) {
         matchedBreaker = subStr;
