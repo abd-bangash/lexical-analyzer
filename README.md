@@ -136,6 +136,7 @@ john.greet();
 ```
 ## 11. Example Program
 ```
+[void] fn initiator {
 $ Define a class
 blueprint Person {
     var charline name;
@@ -169,6 +170,7 @@ $ Function usage
 
 var numi result = add(5, 3);
 disp("Sum is " + result);
+}
 ```
 ## List of things that I have changed
 ### 1.	Data types:
