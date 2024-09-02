@@ -54,7 +54,7 @@ whenever (age > 18) {
 }
 ```
 ### 5.2 Loops
-•	dounitl will keep running until the condition becomes false.
+•	dounitl will keep running until the condition becomes false. <br>
 •	dounless will keep running until the condition becomes true.
 ```
 Var numi i = 0;
@@ -66,7 +66,7 @@ dounless(i > 10){
 }
 ```
 ## 6. Functions
-•	Functions are declared using “fn” keyword.
+•	Functions are declared using “fn” keyword. <br>
 •	The array before “fn” tells parameters and return data type respectively. If multiple parameters then all datatypes are given comma seperated the last in the array will always be the return type if nothing is returned void is used as datatype in this array.
 ```
 [charline, charline] fn greet(name) {
@@ -108,11 +108,11 @@ Var Person john -> construct Person("John Doe", 30);
 john.greet();
 ```
 ### 8.3 Access Modifiers:
-1.	open: Public access, allowing the class member to be accessed from anywhere.
-2.	sealed: Protected access, allowing the class member to be accessed only within the class and its subclasses.
-3.	closed: Private access, restricting the class member to be accessed only within the class itself.
-4.	shared: Internal access, allowing access within the same module or package but not outside of it.
-5.	general: For class-level access, indicating that the member belongs to the class itself rather than instances of the class.
+1.	open: Public access, allowing the class member to be accessed from anywhere.<br>
+2.	sealed: Protected access, allowing the class member to be accessed only within the class and its subclasses.<br>
+3.	closed: Private access, restricting the class member to be accessed only within the class itself.<br>
+4.	shared: Internal access, allowing access within the same module or package but not outside of it.<br>
+5.	general: For class-level access, indicating that the member belongs to the class itself rather than instances of the class.<br>
 
 ## 9. Input/Output
 ### 9.1 Print to Console
@@ -195,7 +195,7 @@ dountil, dounless.
 }
 
 ### 8.	Classes:
-Classes are declared using the blueprint keyword.
+Classes are declared using the blueprint keyword.<br>
 Constructor should be named create.
 
 ### 9.	Access Modifiers:
@@ -205,57 +205,57 @@ open(public), sealed(protected), closed(private), shared(default), general(stati
 ## List of Keywords
  
 ### 1. Basics:
-•	Comments:
-o	Single-line: $
-o	Multi-line: ~$ ... $~
+•	Comments:<br>
+o	Single-line: $<br>
+o	Multi-line: ~$ ... $~<br>
 ### 2. Data Types:
-•	Primitive Types:
-o	numi (integer)
-o	numf (floating-point)
-o	flag (boolean)
-o	charline (string)
-o	block (multi-line string)
+•	Primitive Types:<br>
+o	numi (integer)<br>
+o	numf (floating-point)<br>
+o	flag (boolean)<br>
+o	charline (string)<br>
+o	block (multi-line string)<br>
 ### 3. Variables:
-•	Declaration Keywords:
-o	var (for variables)
-o	const (for constants)
+•	Declaration Keywords:<br>
+o	var (for variables)<br>
+o	const (for constants)<br>
 ### 4. Arrays:
-•	Array Declaration:
-o	list (array declaration)
+•	Array Declaration:<br>
+o	list (array declaration)<br>
 ### 5. Control Flow:
-•	Conditional Statements:
-o	whenever (if)
-o	otherwise (else if)
-o	elsewise (else)
-•	Loops:
-o	dountil (loop until condition is false)
-o	dounless (loop until condition is true)
-o	iterate (loop until a condition is met)
+•	Conditional Statements:<br>
+o	whenever (if)<br>
+o	otherwise (else if)<br>
+o	elsewise (else)<br>
+•	Loops:<br>
+o	dountil (loop until condition is false)<br>
+o	dounless (loop until condition is true)<br>
+o	iterate (loop until a condition is met)<br>
 ### 6. Objects and Classes:
-•	Class Declaration:
-o	blueprint (class declaration)
-•	Object Instantiation:
-o	construct (object creation)
-•	Access Modifiers:
-o	open (public)
-o	sealed (protected)
-o	closed (private)
-o	shared (internal)
-o	general (static)
+•	Class Declaration:<br>
+o	blueprint (class declaration)<br>
+•	Object Instantiation:<br>
+o	construct (object creation)<br>
+•	Access Modifiers:<br>
+o	open (public)<br>
+o	sealed (protected)<br>
+o	closed (private)<br>
+o	shared (internal)<br>
+o	general (static)<br>
 
 ### 7. Functions:
-•	Function Declaration:
-o	fn (function declaration)
+•	Function Declaration:<br>
+o	fn (function declaration)<br>
 ### 8. Input/Output:
-•	I/O Functions:
-o	output or disp (print to console)
-o	read (read input)
+•	I/O Functions:<br>
+o	output or disp (print to console)<br>
+o	read (read input)<br>
 ### 9. Main Method:
-•	Program Entry Point:
-o	initiator (main method equivalent)
+•	Program Entry Point:<br>
+o	initiator (main method equivalent)<br>
 ### 10. Error Handling:
-•	Attempt
-•	Fail
-•	Cleanup
+•	Attempt<br>
+•	Fail<br>
+•	Cleanup<br>
 
 
