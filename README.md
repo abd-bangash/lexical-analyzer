@@ -1,7 +1,7 @@
 # Ease-script Language Specification
 ## 1. Basics
 ### 1.1 Comments
-•	Single-line comments start with $.
+•	Single-line comments start with $.<br>
 •	Multi-line comments are enclosed in ~$ ... $~.
 ```
 $ This is a single-line comment
