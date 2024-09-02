@@ -84,12 +84,12 @@ const tokenize = (string_check) => {
 
   // Handle string literals
   if (testPattern(textConstantPattern, string_check)) {
-    t1.setValues("TEXT_LITERAL", string_check);
+    t1.setValues("CHARLINE_LITERAL", string_check);
     return t1;
   }
   //handle multi line strings
   if (testPattern(multiLineTextConstantPattern, string_check)) {
-    t1.setValues("TEXT_LITERAL", string_check);
+    t1.setValues("BLOCK_LITERAL", string_check);
     return t1;
   }
 

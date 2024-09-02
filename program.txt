@@ -1,1 +1,33 @@
-list numi numbers  ->  [1,2,3,4,5,6]  ;
+$ Define a class
+blueprint Person {
+    var charline name;
+    var numi age;
+
+   [charline, numi, void] fn create(name, age) {
+        self.name -> name;
+        self.age -> age;
+    }
+
+   [void] fn greet() {
+        disp("Hello, my name is " + self.name);
+    }
+}
+
+$ Create an object
+var Person john -> construct Person("John Doe", 30);
+john.greet();
+
+$ Control flow
+var numi i -> 0;
+dountil (i < 5) {
+    output(i);
+    i -> i + 1;
+}
+
+$ Function usage
+[numi, numi, numi] fn add(a, b) {
+    return a + b;
+}
+
+var numi result -> add(5, 3);
+disp("Sum is " + result);

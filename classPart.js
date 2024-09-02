@@ -5,8 +5,9 @@ const TokenClassPart = {
   elsewise: "elsewise",
   break: "break",
   continue: "continue", // Else keyword
-  dountil: "LOOP", // Loop keyword
-  dounless: "LOOP", // Loop keyword
+  dountil: "LOOP_1", // Loop keyword
+  dounless: "LOOP_1", // Loop keyword
+  for: "LOOP_2",
   fn: "FN", // Function keyword
   blueprint: "blueprint", // Class keyword
   construct: "construct", // Object creation keyword
@@ -15,6 +16,9 @@ const TokenClassPart = {
   const: "CONST", //LITERAL CONSTANT
   void: "VOID", //NO RETURN FROM FUNCTION
   list: "LIST",
+  attempt: "ATTEMPT",
+  fail: "FAIL",
+  cleanup: "CLEANUP",
 
   // Data Types
   numi: "DATA_TYPE", // Integer data type
