@@ -10,11 +10,11 @@ $ This is a single-line comment
 ```
 ## 2. Data Types
 ### 2.1 Primitive Types
-•	numi: Integer numbers
-•	numf: Floating-point numbers
-•	flag: Boolean values (true or false)
-•	charline: Strings of characters
-•	block: Multi line strings
+•	numi: Integer numbers <br>
+•	numf: Floating-point numbers<br>
+•	flag: Boolean values (true or false)<br>
+•	charline: Strings of characters<br>
+•	block: Multi line strings<br>
 ```
 var numi age -> 25;
 var numf price -> 19.99;
