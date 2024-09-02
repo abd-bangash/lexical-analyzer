@@ -143,8 +143,8 @@ blueprint Person {
     var numi age;
 
    [charline, numi, void] fn create(name, age) {
-        self.name = name;
-        self.age = age;
+        self.name -> name;
+        self.age -> age;
     }
 
    [void] fn greet() {
@@ -157,10 +157,10 @@ var Person john -> construct Person("John Doe", 30);
 john.greet();
 
 $ Control flow
-var numi i = 0;
+var numi i -> 0;
 dountil (i < 5) {
     output(i);
-    i = i + 1;
+    i +->  1;
 }
 
 $ Function usage
@@ -168,7 +168,7 @@ $ Function usage
     return a + b;
 }
 
-var numi result = add(5, 3);
+var numi result -> add(5, 3);
 disp("Sum is " + result);
 }
 ```
